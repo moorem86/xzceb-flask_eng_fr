@@ -17,10 +17,10 @@ class testE2F(unittest.TestCase):
 class testF2E(unittest.TestCase):
     '''French to English test'''
     def test_frenchToEnglish(self):
-        # Test Hello returns Bonjour
-        self.assertEqual(frenchToEnglish('Hello'), 'Bonjour')
-        # Test Hello does not return Hello
-        self.assertNotEqual(frenchToEnglish('Hello'), 'Hello')
+        # Test Bonjour returns Hello
+        self.assertEqual(frenchToEnglish('Bonjour'), 'Hello')
+        # Test Bonjour does not return Bonjour
+        self.assertNotEqual(frenchToEnglish('Bonjour'), 'Bonjour')
         # Test None returns empty string
         self.assertNotEqual(frenchToEnglish("None"), '')
         # Test empty string returns empty string
