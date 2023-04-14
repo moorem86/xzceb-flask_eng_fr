@@ -1,7 +1,7 @@
-import json
+'''Set up translator instance and define E2F and F2E functions'''
+import os
 from ibm_watson import LanguageTranslatorV3
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
-import os
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -19,20 +19,18 @@ language_translator = LanguageTranslatorV3(
 language_translator.set_service_url(url)
 
 
-def englishToFrench(englishText):
-    frenchText = language_translator.translate(
-    text=englishText,
+def english_to_french(english_text):
+    '''Translate from english to french'''
+    french_text = language_translator.translate(
+    text=english_text,
     model_id='en-fr').get_result()
-    
-    #print(json.dumps(frenchText, indent=2, ensure_ascii=False))
 
-    return frenchText["translations"][0]["translation"]
+    return french_text["translations"][0]["translation"]
 
-def frenchToEnglish(frenchText):
-    englishText = language_translator.translate(
-    text=frenchText,
+def french_to_english(french_text):
+    '''Translate from french to english'''
+    english_text = language_translator.translate(
+    text=french_text,
     model_id='fr-en').get_result()
-    
-    #print(json.dumps(englishText, indent=2, ensure_ascii=False))
 
-    return englishText["translations"][0]["translation"]
+    return english_text["translations"][0]["translation"]
