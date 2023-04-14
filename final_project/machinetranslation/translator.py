@@ -19,8 +19,8 @@ language_translator.set_service_url(url)
 
 def englishToFrench(englishText):
     frenchText = language_translator.translate(
-    text='Hello, how are you today?',
-    model_id='en-es').get_result()
+    text=englishText,
+    model_id='en-fr').get_result()
     
     print(json.dumps(frenchText, indent=2, ensure_ascii=False))
 
@@ -28,8 +28,8 @@ def englishToFrench(englishText):
 
 def frenchToEnglish(frenchText):
     englishText = language_translator.translate(
-    text='Hello, how are you today?',
-    model_id='en-es').get_result()
+    text=frenchText,
+    model_id='fr-en').get_result()
     
     print(json.dumps(englishText, indent=2, ensure_ascii=False))
 
